@@ -1,0 +1,15 @@
+name: PremiumParticles
+version: 13.37
+author: codex01 ~ Jonas
+
+main: de.codex01.pp
+
+commands:
+     moveeffect:
+          description: Aktiviert einen Moveeffect.
+          permissions: pp.moveeffect
+          aliases: meffect
+     bowtrail:
+          description: Aktiviert einen Bowtrail.
+          permissions: pp.bowtrail
+          aliases: btrail
