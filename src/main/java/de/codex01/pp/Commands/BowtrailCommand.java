@@ -16,7 +16,15 @@ public class BowtrailCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String cmdLabel, String[] args) {
 
+        if(!(sender instanceof Player))
+            return false;
+
         Player p = (Player) sender;
+
+        if(!(Main.plugin.getConfig().getBoolean("PP.bowtrail.enabled"))) {
+            p.sendMessage("§cBowtrails sind deaktiviert!");
+            return true;
+        }
 
         ArrayList<Effect> blacklist = new ArrayList<Effect>();
         Effect[] blacklistItems =  { Effect.EXPLOSION_HUGE, Effect.TILE_DUST, Effect.TILE_BREAK, Effect.ITEM_BREAK, Effect.EXPLOSION_LARGE };
@@ -25,7 +33,7 @@ public class BowtrailCommand implements CommandExecutor {
         }
 
 
-        if(p.hasPermission("PowerMiners.bowtrail")) {
+        if(p.hasPermission("pp.bowtrail")) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < Effect.values().length; i++) {
                 if(Effect.values()[i].getType().equals(Effect.Type.PARTICLE)     ) {

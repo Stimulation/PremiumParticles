@@ -15,7 +15,15 @@ import java.util.ArrayList;
 public class MoveeffectCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String cmdLabel, String[] args) {
 
+        if(!(sender instanceof Player))
+            return false;
+
         Player p = (Player) sender;
+
+        if(!(Main.plugin.getConfig().getBoolean("PP.moveeffect.enabled"))) {
+            p.sendMessage("§cMoveeffects sind deaktiviert!");
+            return true;
+        }
 
         ArrayList<Effect> blacklist = new ArrayList<Effect>();
         Effect[] blacklistItems =  { Effect.EXPLOSION_HUGE, Effect.TILE_DUST, Effect.TILE_BREAK, Effect.ITEM_BREAK, Effect.EXPLOSION_LARGE };
@@ -24,7 +32,7 @@ public class MoveeffectCommand implements CommandExecutor {
         }
 
 
-        if(p.hasPermission("PowerMiners.moveeffect")) {
+        if(p.hasPermission("pp.moveeffect")) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < Effect.values().length; i++) {
                 if(Effect.values()[i].getType().equals(Effect.Type.PARTICLE)     ) {
