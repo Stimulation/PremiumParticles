@@ -54,7 +54,7 @@ public class BowListener implements Listener {
 
                 if(Main.plugin.getConfig().getBoolean("PP.bowtrail.landing.enabled"))
                     ParticleUtil.showParticle(p.getLocation(), Effect.STEP_SOUND, 152);
-                
+
             }
         }
 
