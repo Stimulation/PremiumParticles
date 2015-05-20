@@ -1,6 +1,7 @@
 package de.codex01.pp.commands;
 
 import de.codex01.pp.Main;
+import de.codex01.pp.util.MessageManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,12 +18,13 @@ public class PremiumparticlesCommand implements CommandExecutor {
         if(args.length < 1) {
             sender.sendMessage(ChatColor.DARK_PURPLE + "---- " + ChatColor.DARK_GREEN + "Premium" + ChatColor.AQUA + "Particles" + ChatColor.DARK_PURPLE +  " ----");
             sender.sendMessage(ChatColor.GREEN + "Coded by codex01");
-            sender.sendMessage(ChatColor.GREEN + "/pp reload - Reloaded die Config");
+            sender.sendMessage(ChatColor.GREEN + "/pp reload - Reloades the config!");
             return true;
         } else {
-            if(args[0].equalsIgnoreCase("reload") && sender.hasPermission("pp.relaod")) {
-                sender.sendMessage(ChatColor.GREEN + "Die Config wurde gereloaded!");
+            if(args[0].equalsIgnoreCase("reload") && sender.hasPermission("pp.reload")) {
+                sender.sendMessage(ChatColor.GREEN + MessageManager.message(Main.messageFile, "ReloadedMessage"));
                 Main.plugin.reloadConfig();
+                MessageManager.reloadConfig(Main.messageFile);
                 return true;
             }
         }

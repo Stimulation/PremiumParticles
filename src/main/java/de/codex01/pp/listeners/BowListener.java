@@ -51,7 +51,10 @@ public class BowListener implements Listener {
         if(p.getType() == EntityType.ARROW) {
             if(projectiles.contains(p)) {
                 projectiles.remove(p);
-                ParticleUtil.showParticle(p.getLocation(), Effect.STEP_SOUND, 152);
+
+                if(Main.plugin.getConfig().getBoolean("PP.bowtrail.landing.enabled"))
+                    ParticleUtil.showParticle(p.getLocation(), Effect.STEP_SOUND, 152);
+                
             }
         }
 

@@ -1,6 +1,7 @@
 package de.codex01.pp.commands;
 
 import de.codex01.pp.Main;
+import de.codex01.pp.util.MessageManager;
 import org.bukkit.Effect;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,7 +23,7 @@ public class BowtrailCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if(!(Main.plugin.getConfig().getBoolean("PP.bowtrail.enabled"))) {
-            p.sendMessage("§cBowtrails sind deaktiviert!");
+            p.sendMessage(MessageManager.message(Main.messageFile, "BowtrailDeactivated"));
             return true;
         }
 
@@ -48,33 +49,32 @@ public class BowtrailCommand implements CommandExecutor {
 
             if(args.length == 0) {
 
-                p.sendMessage("§c/bowtrail clear - Entfernt alle Effekte");
-                p.sendMessage("§c/bowtrail <Effekt> - Fügt den Effekt hinzu");
-                p.sendMessage("§c/bowtrail effects - Zeigt alle Effekt Namen");
+                p.sendMessage("§c/bowtrail clear - Removes all effects");
+                p.sendMessage("§c/bowtrail <Effekt> - Activates an effect");
+                p.sendMessage("§c/bowtrail effects - Shows all effects");
                 return true;
             }
             if(args.length >= 1) {
 
-                if(args[0].equalsIgnoreCase("clear")) {
+                if(args[0].equalsIgnoreCase("clear") ||args[0].equalsIgnoreCase("remove")) {
                     Main.trails.remove(p);
-                    p.sendMessage("§a Erfolgreich alle Effekte entfernt!");
+                    p.sendMessage(MessageManager.message(Main.messageFile, "EffectRemoved"));
                     return true;
                 } else if(args[0].equalsIgnoreCase("effects") || args[0].equalsIgnoreCase("list")) {
                     p.sendMessage("§cEffects: §a" + list);
-                    p.sendMessage("§cAchtung: Alle Effekte sind Case Sensitive!");
+                    p.sendMessage(MessageManager.message(Main.messageFile, "EffectCaseSensitive"));
                     return true;
                 }
                 else {
 
                     Effect e = Effect.getByName(args[0]);
 
-
                     if(e == null)  {
-                        p.sendMessage("§aUngültiger Effekt!");
+                        p.sendMessage(MessageManager.message(Main.messageFile, "UnknownEffect"));
                         return true;
                     } else {
                         Main.trails.put(p, e);
-                        p.sendMessage("§aEffekt §c" + args[0] + "§a aktiviert!");
+                        p.sendMessage(MessageManager.message(Main.messageFile, "ActivatedEffect").replace("%EFFECT%", args[0]));
                         return true;
                     }
 
