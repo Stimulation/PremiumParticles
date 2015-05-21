@@ -31,6 +31,7 @@ public class Main extends JavaPlugin {
 
     public static Map<Player, Effect> effects = new HashMap<Player, Effect>();
     public static Map<Player, Effect> trails = new HashMap<Player, Effect>();
+    public static Map<Player, Effect> achievements = new HashMap<Player, Effect>();
 
     @Override
     public void onEnable() {

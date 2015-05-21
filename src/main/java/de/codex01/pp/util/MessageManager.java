@@ -19,6 +19,7 @@ public class MessageManager {
         setMessage(f, "ReloadedMessage", "&aSuccessfully reloaded the config!");
         setMessage(f, "MoveEffectDeactivated", "&aMoveeffects are disabled!");
         setMessage(f, "BowtrailDeactivated", "&aBowtrails are disabled!");
+        setMessage(f, "AchievementsDisabled", "&aAchievement Effects are disabled!");
         setMessage(f, "EffectRemoved", "&aSuccessfully disabled all effects!");
         setMessage(f, "EffectCaseSensitive", "&cWarning: All effects are Case Sensitive!");
         setMessage(f, "UnknownEffect", "&cUnkown Effect!");
