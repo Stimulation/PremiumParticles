@@ -1,4 +1,4 @@
-package de.codex01.pp.commands;
+package de.codex01.pp.cmds;
 
 import de.codex01.pp.Main;
 import de.codex01.pp.util.MessageManager;
