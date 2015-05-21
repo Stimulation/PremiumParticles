@@ -1,8 +1,8 @@
 package de.codex01.pp;
 
-import de.codex01.pp.cmds.BowtrailCommand;
-import de.codex01.pp.cmds.MoveeffectCommand;
-import de.codex01.pp.cmds.PremiumparticlesCommand;
+import de.codex01.pp.commands.BowtrailCommand;
+import de.codex01.pp.commands.MoveeffectCommand;
+import de.codex01.pp.commands.PremiumparticlesCommand;
 import de.codex01.pp.listeners.BowListener;
 import de.codex01.pp.listeners.LeaveListener;
 import de.codex01.pp.listeners.MoveListener;
