@@ -50,7 +50,7 @@ public class BowtrailCommand implements CommandExecutor {
             if(args.length == 0) {
 
                 p.sendMessage("§c/bowtrail clear - Removes all effects");
-                p.sendMessage("§c/bowtrail <Effekt> - Activates an effect");
+                p.sendMessage("§c/bowtrail <Effect> - Activates an effect");
                 p.sendMessage("§c/bowtrail effects - Shows all effects");
                 return true;
             }
