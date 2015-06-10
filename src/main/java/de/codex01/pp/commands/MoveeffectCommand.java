@@ -49,7 +49,7 @@ public class MoveeffectCommand implements CommandExecutor {
             if(args.length == 0) {
 
                 p.sendMessage("§c/moveeffect clear - Removes all effects");
-                p.sendMessage("§c/moveeffect <Effekt> - Activates an effect");
+                p.sendMessage("§c/moveeffect <Effect> - Activates an effect");
                 p.sendMessage("§c/moveeffect effects - Shows all effects");
                 return true;
             }
